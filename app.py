@@ -24,3 +24,4 @@ def load_data():
 
     result = result.drop(result.columns[0:12], axis=1)
 
+st.title(' 서울특별시 데이터 시각화 (전기차/충전소) 프로젝트')
