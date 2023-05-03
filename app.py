@@ -1,10 +1,11 @@
 import streamlit as st
-import pandas as pd
-import plotly.express as px
+import pickle
+# import pandas as pd
+# import plotly.express as px
 
 # 데이터 로드
-@st.cache
-def load_data():
+# @st.cache
+# def load_data():
     # df1 = pd.read_csv('/content/전기차 등록대수.csv')
     # df1 = df1.set_index('구분')
 
