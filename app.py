@@ -1,6 +1,7 @@
 import streamlit as st
 import pickle
 import matplotlib
+import folium
 # import pandas as pd
 # import plotly.express as px
 
