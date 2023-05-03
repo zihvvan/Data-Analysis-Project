@@ -30,7 +30,8 @@ import folium
 def draw_chart(root):
     with open(root, 'rb') as file:
        fig = pickle.load(file)
-       fig.show()
+       plt.show()
+        
 
     
 st.title(' 서울특별시 데이터 시각화 (전기차/충전소) 프로젝트')
