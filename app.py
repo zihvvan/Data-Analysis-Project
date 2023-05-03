@@ -25,17 +25,17 @@ import pickle
 
     # result = result.drop(result.columns[0:12], axis=1)
 
-    def draw_chart(root):
-        with open(root, 'rb') as file:
-            fig = pickle.load(file)
+def draw_chart(root):
+    with open(root, 'rb') as file:
+       fig = pickle.load(file)
 
     
-    st.title(' 서울특별시 데이터 시각화 (전기차/충전소) 프로젝트')
+st.title(' 서울특별시 데이터 시각화 (전기차/충전소) 프로젝트')
 
-    draw_chart("barchart.pickle")
-    draw_chart("barchart2.pickle")
-    draw_chart("barchart3.pickle")
-    draw_chart("mapchart.pickle")
+draw_chart("barchart.pickle")
+draw_chart("barchart2.pickle")
+draw_chart("barchart3.pickle")
+draw_chart("mapchart.pickle")
 
     
 
