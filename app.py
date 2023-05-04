@@ -1,13 +1,13 @@
 import streamlit as st
 import pickle
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import folium
 
 
 def draw_chart(root):
     with open(root, 'rb') as file:
-       fig = pickle.load(file)
-       st.pyplot(fig)
+        fig = pickle.load(file)
+        st.pyplot(fig)
         
 
     
@@ -17,8 +17,3 @@ draw_chart("barchart.pickle")
 draw_chart("barchart2.pickle")
 draw_chart("barchart3.pickle")
 draw_chart("mapchart.pickle")
-
-
-    
-
-    
