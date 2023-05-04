@@ -1,8 +1,8 @@
 import streamlit as st
 import pickle
 import matplotlib.pyplot as plt
+from streamlit_folium import folium_static
 import folium
-
 
 def draw_chart(root):
     with open(root, 'rb') as file:
@@ -14,9 +14,6 @@ def draw_chart(root):
         else:
             st.warning("Unknown chart type")
 
-        
-
-    
 st.title(' 서울특별시 데이터 시각화 (전기차/충전소) 프로젝트')
 
 draw_chart("barchart.pickle")
