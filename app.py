@@ -7,7 +7,13 @@ import folium
 def draw_chart(root):
     with open(root, 'rb') as file:
         fig = pickle.load(file)
-        st.pyplot(fig)
+        if isinstance(fig, plt.Figure):
+            st.pyplot(fig)
+        elif isinstance(fig, folium.Map):
+            folium_static(fig)
+        else:
+            st.warning("Unknown chart type")
+
         
 
     
