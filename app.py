@@ -7,7 +7,7 @@ import folium
 def draw_chart(root):
     with open(root, 'rb') as file:
        fig = pickle.load(file)
-       ax.figure.show()
+       st.pyplot(fig)
         
 
     
