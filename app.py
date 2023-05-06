@@ -17,9 +17,9 @@ def draw_chart(root):
 
 st.title('서울특별시 데이터 시각화 (전기차/충전소) 프로젝트')
 
-draw_chart("barchart.pkl")
-draw_chart("barchart2.pkl")
-draw_chart("barchart3.pkl")
-draw_chart("map.pkl")
+draw_chart("charger_graph.pkl")
+draw_chart("charger_per_1000_graph.pkl")
+draw_chart("graph.pickle")
+draw_chart("seoul_electric_car_map.pickle")
 
 
