@@ -14,8 +14,8 @@ def main():
 
     # Show the appropriate page based on the user's menu choice
     if choice == "Homepage":
-        st.title("Data Analysis Project")
-        st.write("서울특별시 전기차/충전기 데이터분석")
+        st.header("Data Analysis Project")
+        st.subheader("서울특별시 전기차/충전기 데이터분석")
         seoul_img = Image.open("seoul.png")
         st.image(seoul_img, use_column_width=True)
         car_img = Image.open("car.png")
