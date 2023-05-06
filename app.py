@@ -7,25 +7,25 @@ import joblib
 def main():
     st.title('서울특별시 데이터 시각화 (전기차/충전소) 프로젝트')
     
-    # 전기차 등록 대수 그래프
-    st.header('전기차 등록 대수 그래프')
+    # 지자체별 전기차 충전기(급속/완속) 갯수
+    st.header('지자체별 전기차 충전기(급속/완속) 갯수')
     image = Image.open('charger_graph.png')
-    st.image(image, caption='전기차 등록 대수 그래프', use_column_width=True)
+    st.image(image, caption='지자체별 전기차 충전기(급속/완속) 갯수', use_column_width=True)
     
-    # 전기차 1000대당 충전소 개수 그래프
-    st.header('전기차 1000대당 충전소 개수 그래프')
+    # 지자체별 전기차 1,000대당 충전기 갯수
+    st.header('지자체별 전기차 1,000대당 충전기 갯수')
     image = Image.open('charger_per_1000_graph.png')
-    st.image(image, caption='전기차 1000대당 충전소 개수 그래프', use_column_width=True)
+    st.image(image, caption='지자체별 전기차 1,000대당 충전기 갯수', use_column_width=True)
     
-    # 전기차 등록 대수와 충전소 개수 지도
+    # 서울특별시 연도별 전기차 등록대수(사업자/비사업자)
+    st.header('서울특별시 연도별 전기차 등록대수(사업자/비사업자)')
+    image = Image.open('graph.png')
+    st.image(image, caption='서울특별시 연도별 전기차 등록대수(사업자/비사업자)', use_column_width=True)
+    
+    # 서울특별시 전기차 충전기 위치 및 개수
     st.header('전기차 등록 대수와 충전소 개수 지도')
     map = joblib.load('seoul_electric_car_map.joblib')
     folium_static(map)
-    
-    # 기타 그래프
-    st.header('기타 그래프')
-    image = Image.open('graph.png')
-    st.image(image, caption='기타 그래프', use_column_width=True)
 
 if __name__ == '__main__':
     main()
