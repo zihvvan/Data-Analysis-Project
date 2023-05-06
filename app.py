@@ -25,9 +25,6 @@ def main():
     st.image(image, caption='서울특별시 연도별 전기차 등록대수(사업용/비사업)', use_column_width=True)
     st.markdown("---")
 def main():
-    # Set page config as the first Streamlit command in your script
-    st.set_page_config(page_title="Map Viewer")
-
     # Load the map from a pickled file
     map_html = joblib.load("map.pkl")
 
