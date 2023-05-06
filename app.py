@@ -7,9 +7,9 @@ def main():
     session = SessionState.get(page="chart", data=42) # create a session state
 
     if session.page == "chart":
-        home_page(session)
+        chart_page()
     elif session.page == "map":
-        dashboard_page(session)
+        map_page()
 
 if __name__ == "__main__":
     main()
