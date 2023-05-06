@@ -2,17 +2,23 @@ import streamlit as st
 from chart import main as chart_page
 from map import main as map_page
 
+# Set page configuration
+st.set_page_config(page_title="Data Analysis Project")
+
 def main():
-    st.set_page_config(page_title="Data Analysis Project")
+    # Create a menu with options to select different pages
+    menu = ["Homepage", "Chart", "Map"]
+    choice = st.sidebar.selectbox("Select a page", menu)
 
-    tabs = ["Chart", "Map"]
+    # Show the appropriate page based on the user's menu choice
+    if choice == "Homepage":
+        st.title("Data Analysis Project")
+        st.write("This is the homepage.")
 
-    # Set page to display based on tab selection
-    page = st.sidebar.selectbox("Select a page", tabs)
-
-    if page == "Chart":
+    elif choice == "Chart":
         chart_page()
-    elif page == "Map":
+
+    elif choice == "Map":
         map_page()
 
 if __name__ == "__main__":
