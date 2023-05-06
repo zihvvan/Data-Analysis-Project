@@ -1,31 +1,15 @@
 import streamlit as st
-from PIL import Image
-from streamlit_folium import folium_static
-import folium
-import joblib
+from streamlit.state.session_state import SessionState
+from chart import main as chart_page
+from map import main as map_page
 
 def main():
-    st.title('데이터 시각화 프로젝트')
-    st.subheader('서울특별시 전기차/충전기 데이터분석')
-    st.markdown("---")
-    # 지자체별 전기차 충전기(급속/완속) 갯수
-    st.header('지자체별 전기차 충전기(급속/완속) 갯수')
-    image = Image.open('charger_graph.png')
-    st.image(image, caption='지자체별 전기차 충전기(급속/완속) 갯수', use_column_width=True)
-    st.markdown("---")
-    # 지자체별 전기차 1,000대당 충전기 갯수
-    st.header('지자체별 전기차 1,000대당 충전기 갯수')
-    image = Image.open('charger_per_1000_graph.png')
-    st.image(image, caption='지자체별 전기차 1,000대당 충전기 갯수', use_column_width=True)
-    st.markdown("---")
-    # 서울특별시 연도별 전기차 등록대수(사업용/비사업용)
-    st.header('서울특별시 연도별 전기차 등록대수')
-    st.subheader('(사업용/비사업용)')
-    image = Image.open('graph.png')
-    st.image(image, caption='서울특별시 연도별 전기차 등록대수(사업용/비사업)', use_column_width=True)
-    st.markdown("---")
-    # 서울특별시 전기차 충전기 위치 및 개수
-    st.header('서울특별시 전기차 충전기 위치 및 개수')
+    session = SessionState.get(page="chart", data=42) # create a session state
 
-if __name__ == '__main__':
+    if session.page == "chart":
+        home_page(session)
+    elif session.page == "map":
+        dashboard_page(session)
+
+if __name__ == "__main__":
     main()
