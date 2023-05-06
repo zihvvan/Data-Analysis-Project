@@ -1,31 +1,31 @@
 import streamlit as st
-import joblib
-import matplotlib.pyplot as plt
+from PIL import Image
 from streamlit_folium import folium_static
 import folium
+import joblib
 
+def main():
+    st.title('서울특별시 데이터 시각화 (전기차/충전소) 프로젝트')
+    
+    # 전기차 등록 대수 그래프
+    st.header('전기차 등록 대수 그래프')
+    image = Image.open('charger_graph.png')
+    st.image(image, caption='전기차 등록 대수 그래프', use_column_width=True)
+    
+    # 전기차 1000대당 충전소 개수 그래프
+    st.header('전기차 1000대당 충전소 개수 그래프')
+    image = Image.open('charger_per_1000_graph.png')
+    st.image(image, caption='전기차 1000대당 충전소 개수 그래프', use_column_width=True)
+    
+    # 전기차 등록 대수와 충전소 개수 지도
+    st.header('전기차 등록 대수와 충전소 개수 지도')
+    map = joblib.load('seoul_electric_car_map.joblib')
+    folium_static(map)
+    
+    # 기타 그래프
+    st.header('기타 그래프')
+    image = Image.open('graph.png')
+    st.image(image, caption='기타 그래프', use_column_width=True)
 
-def draw_chart(root):
-    with open(root, 'rb') as file:
-        fig = joblib.load(file)
-        if isinstance(fig, folium.Map):
-            folium_static(fig)
-        else:
-            st.warning("Unknown chart type")
-            
-
-
-st.set_option('deprecation.showfileUploaderEncoding', False) # streamlit 0.84.0 버전 이후 업로드 파일명 인코딩 에러 대처
-
-st.title('서울특별시 데이터 시각화 (전기차/충전소) 프로젝트')
-
-charger_graph = plt.imread("charger_graph.png")
-draw_chart(charger_graph)
-
-charger_per_1000_graph = plt.imread("charger_per_1000_graph.png")
-draw_chart(charger_per_1000_graph)
-
-seoul_electric_car_map = plt.imread("seoul_electric_car_map.png")
-st.image(seoul_electric_car_map)
-
-draw_chart("seoul_electric_car_map.joblib")
+if __name__ == '__main__':
+    main()
