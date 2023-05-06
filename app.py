@@ -1,6 +1,8 @@
 import streamlit as st
 from chart import main as chart_page
 from map import main as map_page
+from PIL import Image
+
 
 # Set page configuration
 st.set_page_config(page_title="Data Analysis Project")
