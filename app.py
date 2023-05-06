@@ -16,10 +16,11 @@ def main():
     if choice == "Homepage":
         st.title("Data Analysis Project")
         st.write("서울특별시 전기차/충전기 데이터분석")
-        car_img = Image.open("car.png")
-        st.image(car_img, use_column_width=True)
         seoul_img = Image.open("seoul.png")
         st.image(seoul_img, use_column_width=True)
+        car_img = Image.open("car.png")
+        st.image(car_img, use_column_width=True)
+        
 
     elif choice == "Chart":
         chart_page()
