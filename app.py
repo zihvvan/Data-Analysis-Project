@@ -24,10 +24,12 @@ def main():
     image = Image.open('graph.png')
     st.image(image, caption='서울특별시 연도별 전기차 등록대수(사업용/비사업)', use_column_width=True)
     st.markdown("---")
-    # 서울특별시 전기차 충전기 위치 및 개수
-    st.header('전기차 등록 대수와 충전소 개수 지도')
-    map = joblib.load('seoul_electric_car_map.joblib')
-    folium_static(map)
+    # pickle 파일 불러오기
+    with open("seoul_electric_car_map.pickle", "rb") as f:
+        map = pickle.load(f)
+
+    # folium map 객체를 iframe으로 변환하여 streamlit에서 표시
+    st.components.v1.html(f'<iframe srcdoc="{map._repr_html_()}" width="100%" height="500"></iframe>')
 
 if __name__ == '__main__':
     main()
