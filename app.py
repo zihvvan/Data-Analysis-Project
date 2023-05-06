@@ -5,8 +5,8 @@ import folium
 import joblib
 
 def main():
-    st.title('서울특별시 전기차/충전기 데이터분석')
-    st.subheader('데이터 시각화')
+    st.title('데이터 시각화 프로젝트')
+    st.subheader('서울특별시 전기차/충전기 데이터분석')
     st.markdown("---")
     # 지자체별 전기차 충전기(급속/완속) 갯수
     st.header('지자체별 전기차 충전기(급속/완속) 갯수')
