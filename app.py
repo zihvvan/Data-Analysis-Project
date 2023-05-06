@@ -25,11 +25,10 @@ def main():
     st.image(image, caption='서울특별시 연도별 전기차 등록대수(사업용/비사업)', use_column_width=True)
     st.markdown("---")
     # pickle 파일 불러오기
-    with open("seoul_electric_car_map.pickle", "rb") as f:
-        map = pickle.load(f)
-
-    # folium map 객체를 iframe으로 변환하여 streamlit에서 표시
-    st.components.v1.html(f'<iframe srcdoc="{map._repr_html_()}" width="100%" height="500"></iframe>')
+    st.set_page_config(page_title="Map Viewer")
+    st.markdown("<h1 style='text-align: center;'>Seoul EV Charger Locations</h1>", unsafe_allow_html=True)
+    map_html = joblib.load("map.pkl")
+    st.markdown(map_html, unsafe_allow_html=True)
 
 if __name__ == '__main__':
     main()
