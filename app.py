@@ -4,7 +4,7 @@ from chart import main as chart_page
 from map import main as map_page
 
 def main():
-    session = SessionState.get(page="chart", data=42) # create a session state
+    session = st.SessionState.get(page="chart", data=42) # create a session state
 
     if session.page == "chart":
         chart_page()
