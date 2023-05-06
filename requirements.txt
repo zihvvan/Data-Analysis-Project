@@ -2,5 +2,4 @@ streamlit
 matplotlib
 folium
 joblib
-streamlit.state
 SessionState
