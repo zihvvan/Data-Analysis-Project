@@ -4,9 +4,6 @@ import matplotlib.pyplot as plt
 from streamlit_folium import folium_static
 import folium
 
-def draw_image(root):
-image = Image.open(root)
-st.image(image, caption='', use_column_width=True)
 
 def draw_chart(root):
     with open(root, 'rb') as file:
