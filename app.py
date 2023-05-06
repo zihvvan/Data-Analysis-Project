@@ -13,7 +13,7 @@ def main():
     # Show the appropriate page based on the user's menu choice
     if choice == "Homepage":
         st.title("Data Analysis Project")
-        st.write("This is the homepage.")
+        st.write("서울특별시 전기차/충전기 데이터분석")
 
     elif choice == "Chart":
         chart_page()
