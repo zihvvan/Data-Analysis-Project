@@ -24,10 +24,15 @@ def main():
     image = Image.open('graph.png')
     st.image(image, caption='서울특별시 연도별 전기차 등록대수(사업용/비사업)', use_column_width=True)
     st.markdown("---")
-    # pickle 파일 불러오기
+def main():
+    # Set page config as the first Streamlit command in your script
     st.set_page_config(page_title="Map Viewer")
-    st.markdown("<h1 style='text-align: center;'>Seoul EV Charger Locations</h1>", unsafe_allow_html=True)
+
+    # Load the map from a pickled file
     map_html = joblib.load("map.pkl")
+
+    # Display the map
+    st.markdown("<h1 style='text-align: center;'>Seoul EV Charger Locations</h1>", unsafe_allow_html=True)
     st.markdown(map_html, unsafe_allow_html=True)
 
 if __name__ == '__main__':
