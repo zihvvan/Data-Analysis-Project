@@ -16,7 +16,7 @@ def main():
     if choice == "Homepage":
         st.header("Data Analysis Project")
         st.subheader("서울특별시 전기차/충전기 데이터분석")
-        st.write("*김지환*")
+        st.write("**김지환**")
         st.markdown("---")
         seoul_img = Image.open("seoul.png")
         st.image(seoul_img, use_column_width=True)
