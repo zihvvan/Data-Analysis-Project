@@ -24,8 +24,6 @@ def main():
     image = Image.open('graph.png')
     st.image(image, caption='서울특별시 연도별 전기차 등록대수(사업용/비사업)', use_column_width=True)
     st.markdown("---")
-    # 서울특별시 전기차 충전기 위치 및 개수
-    st.header('서울특별시 전기차 충전기 위치 및 개수')
 
 if __name__ == '__main__':
     main()
