@@ -3,6 +3,7 @@ import pickle
 import matplotlib.pyplot as plt
 from streamlit_folium import folium_static
 import folium
+import joblib
 
 def draw_chart(root):
     with open(root, 'rb') as file:
