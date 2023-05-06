@@ -4,6 +4,17 @@ import matplotlib.pyplot as plt
 from streamlit_folium import folium_static
 import folium
 
+# 나눔 폰트 설치
+!sudo apt-get install -y fonts-nanum
+!sudo fc-cache -fv
+!rm ~/.cache/matplotlib -rf
+
+# matplotlib에서 한글폰트 사용을 위한 설정
+plt.rc('font', family='NanumBarunGothic') 
+
+# streamlit에서 한글폰트 사용을 위한 설정
+st.set_option('deprecation.showPyplotGlobalUse', False)
+
 def draw_chart(root):
     with open(root, 'rb') as file:
         fig = joblib.load(file)
