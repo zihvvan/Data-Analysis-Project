@@ -1,14 +1,18 @@
 import streamlit as st
-from streamlit.state.session_state import SessionState
 from chart import main as chart_page
 from map import main as map_page
 
 def main():
-    session = SessionState.get(page="chart", data=42) # create a session state
+    st.set_page_config(page_title="Data Analysis Project")
 
-    if session.page == "chart":
+    tabs = ["Chart", "Map"]
+
+    # Set page to display based on tab selection
+    page = st.sidebar.selectbox("Select a page", tabs)
+
+    if page == "Chart":
         chart_page()
-    elif session.page == "map":
+    elif page == "Map":
         map_page()
 
 if __name__ == "__main__":
