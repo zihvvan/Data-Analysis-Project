@@ -13,6 +13,8 @@ def draw_chart(root):
             folium_static(fig)
         else:
             st.warning("Unknown chart type")
+            
+st.set_option('deprecation.showfileUploaderEncoding', False) # streamlit 0.84.0 버전 이후 업로드 파일명 인코딩 에러 대처
 
 
 st.title('서울특별시 데이터 시각화 (전기차/충전소) 프로젝트')
