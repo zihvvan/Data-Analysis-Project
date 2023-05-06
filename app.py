@@ -19,9 +19,9 @@ def main():
         st.write("**김지환**")
         st.markdown("---")
         seoul_img = Image.open("seoul.png")
-        st.image(seoul_img, use_column_width=300, height=200, caption='서울특별시')
+        st.image(seoul_img, use_column_width=300, caption='서울특별시')
         car_img = Image.open("car.png")
-        st.image(car_img, use_column_width=300, height=200, caption='전기차/충전기')
+        st.image(car_img, use_column_width=300, caption='전기차/충전기')
         
 
     elif choice == "Chart":
