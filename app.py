@@ -24,6 +24,8 @@ def main():
     image = Image.open('graph.png')
     st.image(image, caption='서울특별시 연도별 전기차 등록대수(사업용/비사업)', use_column_width=True)
     st.markdown("---")
+    # 서울특별시 전기차 충전기 위치 및 개수
+    st.header('서울특별시 전기차 충전기 위치 및 개수')
     map_html = joblib.load("map.pkl")
     st.markdown("<h1 style='text-align: center;'>Seoul EV Charger Locations</h1>", unsafe_allow_html=True)
     st.markdown(map_html, unsafe_allow_html=True)
