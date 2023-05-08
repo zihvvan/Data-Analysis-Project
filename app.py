@@ -11,15 +11,14 @@ def main():
     # Create a menu with options to select different pages
     menu = ["Homepage", "Chart", "Map"]
     choice = st.sidebar.selectbox("Select a page", menu)
+    st.sidebar.markdown("---")
+    st.sidebar.markdown(f"<div align=center><h1>📚 Reference </h1></div>", unsafe_allow_html=True)
+    st.sidebar.markdown(":point_down:")
+    st.sidebar.markdown("[![Git](https://img.shields.io/badge/git-444444?style=for-the-badge&logo=git)](https://github.com/zihvvan/DataAnalysis-Project)")
+    st.sidebar.markdown("[![Colab](https://img.shields.io/badge/Colab-444444?style=for-the-badge&logo=Colab)](https://colab.research.google.com/drive/1TTRjmK7EoQomnjUe4Ec85ItlrhjJ3WK4?usp=sharing)")
 
     # Show the appropriate page based on the user's menu choice
     if choice == "Homepage":
-        st.markdown("---")
-        st.markdown(f"<div align=center><h1>📚 Reference </h1></div>", unsafe_allow_html=True)
-        st.markdown(":point_down:")
-        st.markdown("[![Git](https://img.shields.io/badge/git-444444?style=for-the-badge&logo=git)](https://github.com/zihvvan/DataAnalysis-Project)")
-        st.markdown("[![Colab](https://img.shields.io/badge/Colab-444444?style=for-the-badge&logo=Colab)](https://colab.research.google.com/drive/1TTRjmK7EoQomnjUe4Ec85ItlrhjJ3WK4?usp=sharing)")
-
         st.header("Data Analysis Project👨‍💼")
         st.subheader("서울특별시 전기차/충전기 데이터분석⚡🚘")
         st.write("**김지환**")
