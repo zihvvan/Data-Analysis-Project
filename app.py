@@ -23,8 +23,10 @@ def main():
         st.markdown("---")
         seoul_img = Image.open("seoul.png")
         st.image(seoul_img, use_column_width=True, caption='서울특별시')
+        st.markdown("---")
         car_img = Image.open("car.png")
         st.image(car_img, use_column_width=True, caption='전기차/충전기')
+        st.markdown("---")
         
 
     elif choice == "Chart":
