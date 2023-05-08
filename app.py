@@ -19,9 +19,9 @@ def main():
     st.sidebar.markdown("---")
     st.sidebar.markdown(f"<div align=center><h1>🖥 Tech Stack </h1></div>", unsafe_allow_html=True)
     st.sidebar.markdown("![Python](https://img.shields.io/badge/Python-pandas-blue)")
-    st.sidebar.markdown("[![Python](https://img.shields.io/badge/Python-csv-brightgreen)]")
-    st.sidebar.markdown("[![Python](https://img.shields.io/badge/Python-folium-lightgrey)]")
-    st.sidebar.markdown("[![Python](https://img.shields.io/badge/Python-matplotlib-red)]")
+    st.sidebar.markdown("![Python](https://img.shields.io/badge/Python-csv-brightgreen)")
+    st.sidebar.markdown("![Python](https://img.shields.io/badge/Python-folium-lightgrey)")
+    st.sidebar.markdown("![Python](https://img.shields.io/badge/Python-matplotlib-red)")
     
     
     # Show the appropriate page based on the user's menu choice
