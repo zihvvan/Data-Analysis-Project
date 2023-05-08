@@ -24,6 +24,7 @@ def main():
     for i in range(len(df3)):
         lat = df3.loc[i, "lat"]
         lon = df3.loc[i, "lon"]
+        addr = df3.loc[i, "addr"]
         folium.Marker([lat, lon]).add_to(marker_cluster)
 
     # Render map using Folium
