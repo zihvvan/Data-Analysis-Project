@@ -16,7 +16,14 @@ def main():
     st.sidebar.markdown(":point_down:")
     st.sidebar.markdown("[![Git](https://img.shields.io/badge/git-444444?style=for-the-badge&logo=git)](https://github.com/zihvvan/DataAnalysis-Project)")
     st.sidebar.markdown("[![Colab](https://img.shields.io/badge/Colab-444444?style=for-the-badge&logo=Colab)](https://colab.research.google.com/drive/1TTRjmK7EoQomnjUe4Ec85ItlrhjJ3WK4?usp=sharing)")
-
+    st.sidebar.markdown("---")
+    st.sidebar.markdown(f"<div align=center><h1>🖥 Tech Stack </h1></div>", unsafe_allow_html=True)
+    st.sidebar.markdown("[![Python](https://img.shields.io/badge/python-#3776AB?style=for-the-badge&logo=python)]")
+    st.sidebar.markdown("[![Git](https://img.shields.io/badge/git-444444?style=for-the-badge&logo=git)]")
+    st.sidebar.markdown("[![Git](https://img.shields.io/badge/git-444444?style=for-the-badge&logo=git)]")
+    st.sidebar.markdown("[![Git](https://img.shields.io/badge/git-444444?style=for-the-badge&logo=git)]")
+    
+    
     # Show the appropriate page based on the user's menu choice
     if choice == "Homepage":
         st.header("Data Analysis Project👨‍💼")
