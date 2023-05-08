@@ -27,7 +27,7 @@ def main():
     for idx, row in df3.iterrows():
         folium.Marker(
             location=[row['lat'], row['lon']],
-            popup=f"{row['stat_nm']}<br>{row['addr']}<br>{row['charger_type']}",
+            popup=f"{row['stat_nm']}<br>{row['addr']}<br>{row['[charger_type]']}",
             tooltip=row['stat_nm'],
         ).add_to(marker_cluster)
 
