@@ -1,5 +1,5 @@
 import folium
-from folium.plugins import MarkerCluster
+from folium.plugins import FastMarkerCluster
 import pandas as pd
 import streamlit as st
 from streamlit_folium import folium_static
@@ -17,17 +17,19 @@ def main():
     st.markdown("---")
     st.header("서울특별시 전기차 충전소 지도 🗺")
     # Create a map centered on Seoul
-    m = folium.Map(location=[37.566345, 126.977893], zoom_start=12)
+    m = folium.Map(location=[37.566345, 126.977893], zoom_start=11)
 
-    # Add markers for each charging station using MarkerCluster
-    marker_cluster = MarkerCluster().add_to(m)
-    for i in range(len(df3)):
-        lat = df3.loc[i, "lat"]
-        lon = df3.loc[i, "lon"]
-        name = df3.loc[i, "stat_nm"]
-        address = df3.loc[i, "addr"]
-        charger = df3.loc[i, "charger_type"]
-        folium.Marker([lat, lon], tooltip=name, popup=f"{name}<br>{address}<br>{charger}").add_to(marker_cluster)
+    # Add markers for each charging station using FastMarkerCluster
+    marker_cluster = FastMarkerCluster(data=list(zip(df3['lat'], df3['lon'])))
+    marker_cluster.add_to(m)
+    
+    # Add popup to each marker
+    for idx, row in df3.iterrows():
+        folium.Marker(
+            location=[row['lat'], row['lon']],
+            popup=f"{row['stat_nm']}<br>{row['addr']}<br>{row['charger_type']}",
+            tooltip=row['stat_nm'],
+        ).add_to(marker_cluster)
 
     # Render map using Folium
     folium_static(m)
