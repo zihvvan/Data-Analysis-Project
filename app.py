@@ -11,6 +11,11 @@ def main():
     # Create a menu with options to select different pages
     menu = ["Homepage", "Chart", "Map"]
     choice = st.sidebar.selectbox("Select a page", menu)
+    st.markdown("---")
+    st.markdown(f"<div align=center><h1>📚 Reference </h1></div>", unsafe_allow_html=True)
+    st.markdown(":point_down:")
+    st.markdown("[![Git](https://img.shields.io/badge/git-444444?style=for-the-badge&logo=git)](https://github.com/zihvvan/DataAnalysis-Project)")
+    st.markdown("[![Colab](https://img.shields.io/badge/Colab-444444?style=for-the-badge&logo=Colab)](https://colab.research.google.com/drive/1TTRjmK7EoQomnjUe4Ec85ItlrhjJ3WK4?usp=sharing)")
 
     # Show the appropriate page based on the user's menu choice
     if choice == "Homepage":
@@ -34,11 +39,6 @@ def main():
     elif choice == "Map":
         map_page()
         
-    elif choice == "Development Tools":
-        st.header("Development Tools")
-        st.markdown("- [Git](https://git-scm.com/)")
-        st.markdown("- [Notion](https://www.notion.so/)")
-        st.markdown("- [Colab](https://colab.research.google.com/)")
 
 if __name__ == "__main__":
     main()
