@@ -14,7 +14,7 @@ def main():
 
     # Show the appropriate page based on the user's menu choice
     if choice == "Homepage":
-        st.header("Data Analysis Project📊")
+        st.header("Data Analysis Project👨‍💼")
         st.subheader("서울특별시 전기차/충전기 데이터분석⚡🚘")
         st.write("**김지환**")
         st.write("전기차와 충전소의 수는 최근 몇 년 간 급격히 증가하고 있습니다.\n"
