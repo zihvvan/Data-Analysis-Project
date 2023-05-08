@@ -17,7 +17,7 @@ def main():
     st.markdown("---")
     st.header("서울특별시 전기차 충전소 지도 🗺")
     # Create a map centered on Seoul
-    m = folium.Map(location=[37.566345, 126.977893], zoom_start=11)
+    m = folium.Map(location=[37.566345, 126.977893], zoom_start=12)
 
     # Add markers for each charging station using MarkerCluster
     marker_cluster = MarkerCluster().add_to(m)
@@ -27,7 +27,7 @@ def main():
         name = df3.loc[i, "stat_nm"]
         address = df3.loc[i, "addr"]
         charger = df3.loc[i, "charger_type"]
-        folium.Marker([lat, lon], tooltip=name, popup=f"{name}<br>{address}<br>{charger}").add_to(m)
+        folium.Marker([lat, lon], tooltip=name, popup=f"{name}<br>{address}<br>{charger}").add_to(marker_cluster)
 
     # Render map using Folium
     folium_static(m)
@@ -35,4 +35,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
