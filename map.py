@@ -26,6 +26,7 @@ def main():
 
     # Render map using Folium
     folium_static(m)
+    st.markdown("---")
 
 if __name__ == "__main__":
     main()
