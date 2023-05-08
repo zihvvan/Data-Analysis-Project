@@ -12,8 +12,10 @@ def main():
     df3 = pd.read_csv("서울특별시 전기차 충전소.csv")
 
     # 데이터프레임 출력
+    st.header("서울특별시 전기차 충전소.csv 📄")
     st.dataframe(df3)
     st.markdown("---")
+    st.header("서울특별시 전기차 충전소 지도 🗺")
     # Create a map centered on Seoul
     m = folium.Map(location=[37.566345, 126.977893], zoom_start=11)
 
