@@ -1,10 +1,4 @@
 import folium
-import joblib
-import streamlit as st
-import pandas as pd
-
-
-import folium
 import streamlit as st
 from streamlit_folium import folium_static
 import pandas as pd
@@ -23,16 +17,14 @@ def main():
     for i in range(len(df3)):
         lat = df3.loc[i, "lat"]
         lon = df3.loc[i, "lon"]
-        name = df3.loc[i, "충전소명"]
-        address = df3.loc[i, "주소"]
-        charger = df3.loc[i, "충전기타입(명)"]
-        folium.Marker([lat, lon], tooltip=name, popup=f"{name}<br>{address}<br>{charger}").add_to(m)
+        folium.Marker([lat, lon]).add_to(m)
 
     # Render map using Folium
     folium_static(m)
 
 if __name__ == "__main__":
     main()
+
 
 # def main():
 #     st.title('데이터 시각화 프로젝트')
