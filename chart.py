@@ -19,7 +19,7 @@ def main():
     st.image(image, caption='지자체별 전기차 1,000대당 충전기 갯수', use_column_width=True)
     st.markdown("---")
     # 서울특별시 연도별 전기차 등록대수(사업용/비사업용)
-    st.header('서울특별시 연도별 전기차 등록대수 🏎')
+    st.header('서울특별시 연도별 전기차 등록대수 🚗')
     st.subheader('(사업용/비사업용)')
     image = Image.open('graph.png')
     st.image(image, caption='서울특별시 연도별 전기차 등록대수(사업용/비사업)', use_column_width=True)
