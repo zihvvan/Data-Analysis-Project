@@ -5,6 +5,9 @@ import pandas as pd
 
 
 def main():
+    st.title('데이터 시각화 프로젝트')
+    st.subheader('서울특별시 전기차 충전소 위치🏁')
+    st.markdown("---")
     # CSV 파일을 Pandas DataFrame으로 읽어들임
     df3 = pd.read_csv("서울특별시 전기차 충전소.csv")
 
