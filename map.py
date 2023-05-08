@@ -22,8 +22,8 @@ def main():
     # Add markers for each charging station using MarkerCluster
     marker_cluster = MarkerCluster().add_to(m)
     for i in range(len(df3)):
-        lat = df3.loc[i, "위도"]
-        lon = df3.loc[i, "경도"]
+        lat = df3.loc[i, "lat"]
+        lon = df3.loc[i, "lon"]
         folium.Marker([lat, lon]).add_to(marker_cluster)
 
     # Render map using Folium
