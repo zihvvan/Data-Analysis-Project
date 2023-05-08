@@ -22,13 +22,15 @@ def main():
     # Add markers for each charging station using FastMarkerCluster
     marker_cluster = FastMarkerCluster(data=list(zip(df3['lat'], df3['lon'])))
     marker_cluster.add_to(m)
-    
+
     # Add popup to each marker
     for idx, row in df3.iterrows():
+        popup = f"{row['stat_nm']}<br>{row['addr']}<br>{row['charger_type']}"
+        tooltip = row['stat_nm']
         folium.Marker(
             location=[row['lat'], row['lon']],
-            popup=f"{row['stat_nm']}<br>{row['addr']}<br>{row['[charger_type]']}",
-            tooltip=row['stat_nm'],
+            popup=popup,
+            tooltip=tooltip,
         ).add_to(marker_cluster)
 
     # Render map using Folium
