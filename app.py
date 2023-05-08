@@ -26,7 +26,7 @@ def main():
         st.markdown("---")
         car_img = Image.open("car.png")
         st.image(car_img, use_column_width=True, caption='전기차/충전기')
-        st.markdown("---")
+
         
 
     elif choice == "Chart":
