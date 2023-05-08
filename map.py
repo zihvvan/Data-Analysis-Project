@@ -4,7 +4,7 @@ import streamlit as st
 import pandas as pd
 
 # CSV 파일을 Pandas DataFrame으로 읽어들임
-df = pd.read_csv("서울특별시 전기차 충전소.csv")
+df3 = pd.read_csv("서울특별시 전기차 충전소.csv")
 
 # 데이터프레임 출력
 st.dataframe(df3)
