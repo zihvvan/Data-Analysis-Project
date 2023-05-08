@@ -28,13 +28,17 @@ def main():
         st.image(car_img, use_column_width=True, caption='전기차/충전기')
         st.markdown("---")
 
-        
-
     elif choice == "Chart":
         chart_page()
 
     elif choice == "Map":
         map_page()
+        
+    elif choice == "Development Tools":
+        st.header("Development Tools")
+        st.markdown("- [Git](https://git-scm.com/)")
+        st.markdown("- [Notion](https://www.notion.so/)")
+        st.markdown("- [Colab](https://colab.research.google.com/)")
 
 if __name__ == "__main__":
     main()
