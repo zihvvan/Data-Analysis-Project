@@ -18,7 +18,7 @@ def main():
     st.sidebar.markdown("[![Colab](https://img.shields.io/badge/Colab-444444?style=for-the-badge&logo=Colab)](https://colab.research.google.com/drive/1TTRjmK7EoQomnjUe4Ec85ItlrhjJ3WK4?usp=sharing)")
     st.sidebar.markdown("---")
     st.sidebar.markdown(f"<div align=center><h1>🖥 Tech Stack </h1></div>", unsafe_allow_html=True)
-    st.sidebar.markdown("(https://img.shields.io/badge/Python-pandas-blue)")
+    st.sidebar.markdown("![Python](https://img.shields.io/badge/Python-pandas-blue)")
     st.sidebar.markdown("[![Python](https://img.shields.io/badge/Python-csv-brightgreen)]")
     st.sidebar.markdown("[![Python](https://img.shields.io/badge/Python-folium-lightgrey)]")
     st.sidebar.markdown("[![Python](https://img.shields.io/badge/Python-matplotlib-red)]")
