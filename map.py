@@ -13,8 +13,6 @@ def main():
 
     # 데이터프레임 출력
     st.dataframe(df3)
-    
-    st.dataframe(df3)
     st.markdown("---")
     # Create a map centered on Seoul
     m = folium.Map(location=[37.566345, 126.977893], zoom_start=11)
