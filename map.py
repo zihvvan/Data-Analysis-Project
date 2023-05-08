@@ -25,7 +25,7 @@ def main():
 
     # Add popup to each marker
     for idx, row in df3.iterrows():
-        popup = f"{row['stat_nm']}<br>{row['addr']}<br>{row['charger_type']}"
+        popup = f"{row['stat_nm']}<br>{row['addr']}<br>{{{row['charger_type']}}}"
         tooltip = row['stat_nm']
         folium.Marker(
             location=[row['lat'], row['lon']],
