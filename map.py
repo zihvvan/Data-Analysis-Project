@@ -21,8 +21,8 @@ def main():
 
     # Add markers for each charging station
     for i in range(len(df3)):
-        lat = df3.loc[i, "위도"]
-        lon = df3.loc[i, "경도"]
+        lat = df3.loc[i, "lat"]
+        lon = df3.loc[i, "lon"]
         name = df3.loc[i, "충전소명"]
         address = df3.loc[i, "주소"]
         charger = df3.loc[i, "충전기타입(명)"]
