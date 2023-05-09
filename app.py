@@ -15,7 +15,7 @@ def main():
     st.sidebar.markdown(f"<div align=center><h1>📚 Reference </h1></div>", unsafe_allow_html=True)
     st.sidebar.markdown(":point_down:")
     st.sidebar.markdown("[![Git](https://img.shields.io/badge/git-444444?style=for-the-badge&logo=git)](https://github.com/zihvvan/DataAnalysis-Project)")
-    st.sidebar.markdown("[![Colab](https://img.shields.io/badge/Colab-444444?style=for-the-badge&logo=Colab)](https://colab.research.google.com/drive/1TTRjmK7EoQomnjUe4Ec85ItlrhjJ3WK4?usp=sharing)")
+    st.sidebar.markdown("[![Colab](https://img.shields.io/badge/Colab-444444?style=for-the-badge&logo=Colab)](https://colab.research.google.com/drive/1GhtcEP71UBjw22u0sHguqZcjauEu4-MC?usp=sharing)")
     st.sidebar.markdown("---")
     st.sidebar.markdown(f"<div align=center><h1>🖥 Tech Stack </h1></div>", unsafe_allow_html=True)
     st.sidebar.markdown("![Python](https://img.shields.io/badge/Python-pandas-blue)")
