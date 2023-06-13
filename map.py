@@ -1,6 +1,6 @@
 import streamlit as st
-import pandas as pd
 from streamlit_folium import folium_static
+import pandas as pd
 import folium
 from folium.plugins import FastMarkerCluster
 
