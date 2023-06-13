@@ -3,4 +3,3 @@ matplotlib
 folium
 joblib
 pandas
-base64
