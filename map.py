@@ -1,8 +1,8 @@
+import streamlit as st
+import pandas as pd
+from streamlit_folium import folium_static
 import folium
 from folium.plugins import FastMarkerCluster
-import pandas as pd
-import streamlit as st
-import base64
 
 
 def main():
@@ -34,24 +34,13 @@ def main():
             tooltip=tooltip,
         ).add_to(marker_cluster)
 
-#     # Render map using Folium
-#     folium_static(m)
-#     st.markdown("---")
-
- # Render map using Folium
-    folium_map(m)
+    # Render map using Folium
+    folium_static(m)
+    st.markdown("---")
 
 
-def folium_map(m):
-    # Generate HTML string of the map
-    m.save("map.html")
-    with open("map.html", "r") as f:
-        html_string = f.read()
 
-    # Display the map using st.write and iframe
-    st.write(f'<iframe src="data:text/html;base64,{base64.b64encode(html_string.encode()).decode()}" '
-             f'width="100%" height="500" frameborder="0" allowfullscreen></iframe>',
-             unsafe_allow_html=True)
+
 
 if __name__ == "__main__":
     main()
