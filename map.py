@@ -44,7 +44,6 @@ import folium
 from folium.plugins import FastMarkerCluster
 import pandas as pd
 import streamlit as st
-import base64
 
 
 def main():
@@ -61,6 +60,9 @@ def main():
     st.header("서울특별시 전기차 충전소 지도 🗺")
     # Create a map centered on Seoul
     m = folium.Map(location=[37.566345, 126.977893], zoom_start=11)
+
+    # Limit the number of data points (adjust this number as needed)
+    df3 = df3[:1000]
 
     # Add markers for each charging station using FastMarkerCluster
     marker_cluster = FastMarkerCluster(data=list(zip(df3['lat'], df3['lon'])))
@@ -82,6 +84,7 @@ def main():
     # Add the map HTML to Streamlit using Markdown
     st.markdown(f'<div>{map_html}</div>', unsafe_allow_html=True)
     st.markdown("---")
+
 
 if __name__ == "__main__":
     main()
