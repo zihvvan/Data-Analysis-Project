@@ -33,13 +33,8 @@ def main():
             tooltip=tooltip,
         ).add_to(marker_cluster)
 
-#     # Render map using Folium
-#     folium_static(m)
-#     st.markdown("---")
-
     # Render map using Folium
-    folium_map = m._repr_html_()
-    st.markdown(folium_map, unsafe_allow_html=True)
+    folium_static(m)
     st.markdown("---")
 
 if __name__ == "__main__":
