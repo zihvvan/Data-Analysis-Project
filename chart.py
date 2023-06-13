@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 import folium
-from streamlit_folium import folium_static
+# from streamlit_folium import folium_static
 import joblib
 
 def main():
