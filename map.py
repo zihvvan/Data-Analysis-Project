@@ -37,18 +37,14 @@
 #     folium_static(m)
 #     st.markdown("---")
 
-
-
-
-
 # if __name__ == "__main__":
 #     main()
-
 
 import folium
 from folium.plugins import FastMarkerCluster
 import pandas as pd
 import streamlit as st
+import base64
 
 
 def main():
@@ -80,10 +76,16 @@ def main():
             tooltip=tooltip,
         ).add_to(marker_cluster)
 
-    # Render map using Folium
-    folium_static(m)
+    # Convert the map to HTML
+    map_html = m._repr_html_()
+
+    # Add the map HTML to Streamlit using Markdown
+    st.markdown(f'<div>{map_html}</div>', unsafe_allow_html=True)
     st.markdown("---")
 
 if __name__ == "__main__":
     main()
+
+
+
 
