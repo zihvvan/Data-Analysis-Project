@@ -86,7 +86,8 @@ def main():
     iframe_component = be.IFrame(html=m_html, width="100%", height="600px")
     
     # Display the IFrame as a Streamlit component
-    st.components.v1.html(iframe_component.to_html(), height=600)
+#     st.components.v1.html(iframe_component.to_html(), height=600)
+    st.markdown(iframe_component.to_html(), unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
