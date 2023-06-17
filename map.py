@@ -45,6 +45,28 @@ import streamlit as st
 import folium
 from folium.plugins import FastMarkerCluster
 import pandas as pd
+import io
+from PIL import Image
+
+def create_map(df):
+    # 지도 생성
+    map = folium.Map(location=[37.566345, 126.977893], zoom_start=12)
+
+    # FastMarkerCluster 추가
+    cluster = FastMarkerCluster(data=list(zip(df['lat'], df['lon'])))
+    map.add_child(cluster)
+
+    # 각 마커에 팝업 추가
+    for idx, row in df.iterrows():
+        popup = f"<b>{row['stat_nm']}</b><br>[주소: {row['addr']}]<br>[충전 종류: {row['charger_type']}]"
+        tooltip = row['stat_nm']
+        folium.Marker(
+            location=[row['lat'], row['lon']],
+            popup=popup,
+            tooltip=tooltip,
+        ).add_to(cluster)
+
+    return map
 
 def main():
     st.title('데이터 시각화 프로젝트')
@@ -61,30 +83,20 @@ def main():
     st.header("서울특별시 전기차 충전소 지도 🗺")
 
     # Folium 지도 생성
-    my_map = folium.Map(location=[37.566345, 126.977893], zoom_start=12)
+    my_map = create_map(df3)
 
-    # FastMarkerCluster 추가
-    cluster = FastMarkerCluster(data=list(zip(df3['lat'], df3['lon'])))
-    my_map.add_child(cluster)
+    # Folium 지도를 이미지로 변환
+    img_data = my_map._to_png(5)  # Set scale parameter to control image size (default scale is 2)
 
-    # 각 마커에 팝업 추가
-    for idx, row in df3.iterrows():
-        popup = f"<b>{row['stat_nm']}</b><br>[주소: {row['addr']}]<br>[충전 종류: {row['charger_type']}]"
-        tooltip = row['stat_nm']
-        folium.Marker(
-            location=[row['lat'], row['lon']],
-            popup=popup,
-            tooltip=tooltip,
-        ).add_to(cluster)
+    # 이미지 스트림을 PIL Image 객체로 열기
+    image = Image.open(io.BytesIO(img_data))
 
-    # Folium 지도를 HTML로 변환
-    map_html = my_map.get_root().render()
-
-    # Streamlit에 HTML 지도 출력
-    st.markdown(map_html, unsafe_allow_html=True)
+    # 이미지를 Streamlit에 표시
+    st.image(image, use_column_width=True)
 
 if __name__ == "__main__":
     main()
+
 
 
 
