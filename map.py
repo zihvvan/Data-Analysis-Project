@@ -77,12 +77,15 @@ def main():
             tooltip=tooltip,
         ).add_to(cluster)
 
-    # Folium 지도를 HTML로 변환하여 Streamlit에 출력
+    # Folium 지도를 HTML로 변환
     map_html = my_map.get_root().render()
-    st.components.v1.html(map_html, width='100%', height=500)
+
+    # Streamlit에 HTML 지도 출력
+    st.markdown(map_html, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
+
 
 
 
