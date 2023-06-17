@@ -42,17 +42,35 @@
 #     main()
 
 import streamlit as st
-import pandas as pd
 import folium
 from folium.plugins import FastMarkerCluster
-import base64
-import io
+import pandas as pd
+
+def create_map(df):
+    # 지도 생성
+    my_map = folium.Map(location=[37.566345, 126.977893], zoom_start=12)
+
+    # FastMarkerCluster 추가
+    cluster = FastMarkerCluster(data=list(zip(df['lat'], df['lon'])))
+    my_map.add_child(cluster)
+
+    # 각 마커에 팝업 추가
+    for idx, row in df.iterrows():
+        popup = f"<b>{row['stat_nm']}</b><br>[주소: {row['addr']}]<br>[충전 종류: {row['charger_type']}]"
+        tooltip = row['stat_nm']
+        folium.Marker(
+            location=[row['lat'], row['lon']],
+            popup=popup,
+            tooltip=tooltip,
+        ).add_to(cluster)
+
+    return my_map
 
 def main():
     st.title('데이터 시각화 프로젝트')
     st.subheader('서울특별시 전기차 충전소 위치🏁')
     st.markdown("---")
-
+    
     # CSV 파일을 Pandas DataFrame으로 읽어들임
     df3 = pd.read_csv("서울특별시 전기차 충전소.csv")
 
@@ -60,32 +78,16 @@ def main():
     st.header("서울특별시 전기차 충전소.csv 📄")
     st.dataframe(df3)
     st.markdown("---")
-    st.header("서울특시 전기차 충전소 지도 🗺")
+    st.header("서울특별시 전기차 충전소 지도 🗺")
 
-    # Create a map centered on Seoul
-    m = folium.Map(location=[37.566345, 126.977893], zoom_start=11)
+    # Folium 지도 생성
+    my_map = create_map(df3)
 
-    # Add markers for each charging station using FastMarkerCluster
-    marker_cluster = FastMarkerCluster(data=list(zip(df3['lat'], df3['lon'])))
-    marker_cluster.add_to(m)
+    # Folium 지도를 HTML로 변환
+    map_html = my_map.get_root().render()
 
-    # Add popup to each marker
-    for idx, row in df3.iterrows():
-        popup = f"{row['stat_nm']}<br>{[row['addr']]}<br>{[row['charger_type']]}"
-        tooltip = row['stat_nm']
-        folium.Marker(
-            location=[row['lat'], row['lon']],
-            popup=popup,
-            tooltip=tooltip,
-        ).add_to(marker_cluster)
-
-    # Render the map using INLINE HTML and display it using streamlit.write
-    mmap = io.BytesIO()
-    m.save(mmap, close_file=False)
-    mmap.seek(0)
-    st.write(base64.b64encode(mmap.getvalue()).decode(), unsafe_allow_html=True)
-    
-    st.markdown("---")
+    # Streamlit에 HTML로 표시
+    st.components.v1.html(map_html, width='100%', height=500)
 
 if __name__ == "__main__":
     main()
