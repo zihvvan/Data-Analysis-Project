@@ -86,7 +86,7 @@ def main():
     my_map = create_map(df3)
 
     # Folium 지도를 이미지로 변환
-    img_data = my_map._to_png(2)  # 이미지 크기를 조정하려면 scale 값을 변경하세요
+    img_data = my_map._to_png(2, width='100%', height='100%')  # 이미지 크기를 조정하려면 scale 값을 변경하세요
 
     # 이미지 스트림을 PIL Image 객체로 열기
     image = Image.open(io.BytesIO(img_data))
@@ -96,6 +96,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
