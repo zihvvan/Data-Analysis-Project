@@ -87,7 +87,7 @@ def main():
     map_html = my_map.get_root().render()
 
     # Streamlit에 HTML로 표시
-    st.components.v1.html(map_html, width='100%', height=500)
+    st.markdown(map_html, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
