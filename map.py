@@ -41,16 +41,18 @@
 # if __name__ == "__main__":
 #     main()
 
-import streamlit as st
+import pandas as pd
 import folium
 from folium.plugins import FastMarkerCluster
-import pandas as pd
-import io
-import base64
+import streamlit as st
 
-def create_map(df):
-    # 지도 생성
-    map = folium.Map(location=[37.566345, 126.977893], zoom_start=12)
+# 데이터 예시 (실제 데이터에서 이 부분을 수정해 주세요)
+data = {'lat': [37, 37.5], 'lon': [126, 126.5], 'stat_nm': ['A', 'B'],
+    'addr': ['Address A', 'Address B'], 'charger_type': ['Type A', 'Type B']}
+df3 = pd.DataFrame(data)
+
+# 지도 만들기
+def render_map(df    map = folium.Map(location=[37.566345, 126.977893], zoom_start=12, width='100%', height='100%')
 
     # FastMarkerCluster 추가
     cluster = FastMarkerCluster(data=list(zip(df['lat'], df['lon'])))
@@ -65,36 +67,13 @@ def create_map(df):
             popup=popup,
             tooltip=tooltip,
         ).add_to(cluster)
-
     return map
 
-def main():
-    st.title('데이터 시각화 프로젝트')
-    st.subheader('서울특별시 전기차 충전소 위치🏁')
-    st.markdown("---")
-    
-    # CSV 파일을 Pandas DataFrame으로 읽어들임
-    df3 = pd.read_csv("서울특별시 전기차 충전소.csv")
+streamlit_map = render_map(df3)
 
-    # 데이터프레임 출력
-    st.header("서울특별시 전기차 충전소.csv 📄")
-    st.dataframe(df3)
-    st.markdown("---")
-    st.header("서울특별시 전기차 충전소 지도 🗺")
-
-    # Folium 지도 생성
-    my_map = create_map(df3)
-
-    # Folium 지도를 HTML로 변환
-    map_html = my_map.get_root().render()
-
-    # HTML을 바이너리 데이터로 변환하여 다운로드 링크 생성
-    b64 = base64.b64encode(map_html.encode()).decode()
-    html = f'<img src="data:image/png;base64,{b64}" width="100%" height="100%">'
-    st.markdown(html, unsafe_allow_html=True)
-
-if __name__ == "__main__":
-    main()
+# 지도를 streamlit에 표시
+st.title(" 지도 ")
+folium_static(streamlit_map)
 
 
 
