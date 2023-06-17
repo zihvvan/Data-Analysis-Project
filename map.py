@@ -42,15 +42,14 @@
 #     main()
 
 import streamlit as st
-import pandas as pd
 import folium
 from folium.plugins import FastMarkerCluster
-import os
 
 def main():
     st.title('데이터 시각화 프로젝트')
     st.subheader('서울특별시 전기차 충전소 위치🏁')
     st.markdown("---")
+    
     # CSV 파일을 Pandas DataFrame으로 읽어들임
     df3 = pd.read_csv("서울특별시 전기차 충전소.csv")
 
@@ -59,34 +58,26 @@ def main():
     st.dataframe(df3)
     st.markdown("---")
     st.header("서울특별시 전기차 충전소 지도 🗺")
-    # Create a map centered on Seoul
-    m = folium.Map(location=[37.566345, 126.977893], zoom_start=11)
+    
+    # 지도 생성
+    map = folium.Map(location=[37.566345, 126.977893], zoom_start=12, width='100%', height='100%')
 
-    # Add markers for each charging station using FastMarkerCluster
-    marker_cluster = FastMarkerCluster(data=list(zip(df3['lat'], df3['lon'])))
-    marker_cluster.add_to(m)
+    # FastMarkerCluster 추가
+    cluster = FastMarkerCluster(data=list(zip(df3['lat'], df3['lon'])))
+    map.add_child(cluster)
 
-    # Add popup to each marker
+    # 각 마커에 팝업 추가
     for idx, row in df3.iterrows():
-        popup = f"{row['stat_nm']}<br>{row['addr']}<br>{row['charger_type']}"
+        popup = f"<b>{row['stat_nm']}</b><br>[주소: {row['addr']}]<br>[충전 종류: {row['charger_type']}]"
         tooltip = row['stat_nm']
         folium.Marker(
             location=[row['lat'], row['lon']],
             popup=popup,
             tooltip=tooltip,
-        ).add_to(marker_cluster)
+        ).add_to(cluster)
 
-    # Save the map as an HTML file in the root directory
-    map_path = "map.html"
-    m.save(map_path)
-    
-    # Get the absolute path of the map.html file
-    map_abs_path = os.path.abspath(map_path)
-    
-    # Display the map using an iframe
-    st.markdown(f'<iframe src="file://{map_abs_path}" width="1000" height="500"></iframe>', unsafe_allow_html=True)
-    st.markdown("---")
-
+    # Folium 지도 객체를 Streamlit에 출력
+    folium_static(map)
 
 if __name__ == "__main__":
     main()
