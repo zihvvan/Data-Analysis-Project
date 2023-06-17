@@ -45,7 +45,7 @@ import streamlit as st
 import pandas as pd
 import folium
 from folium.plugins import FastMarkerCluster
-
+import os
 
 def main():
     st.title('데이터 시각화 프로젝트')
@@ -76,11 +76,15 @@ def main():
             tooltip=tooltip,
         ).add_to(marker_cluster)
 
-    # Save the map as an HTML file
-    m.save('map.html')
+    # Save the map as an HTML file in the root directory
+    map_path = "map.html"
+    m.save(map_path)
+    
+    # Get the absolute path of the map.html file
+    map_abs_path = os.path.abspath(map_path)
     
     # Display the map using an iframe
-    st.markdown('<iframe src="map.html" width="1000" height="500"></iframe>', unsafe_allow_html=True)
+    st.markdown(f'<iframe src="file://{map_abs_path}" width="1000" height="500"></iframe>', unsafe_allow_html=True)
     st.markdown("---")
 
 
