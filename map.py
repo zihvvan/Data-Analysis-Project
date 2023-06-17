@@ -61,7 +61,7 @@ def main():
     st.header("서울특별시 전기차 충전소 지도 🗺")
 
     # Folium 지도 생성
-    my_map = folium.Map(location=[37.566345, 126.977893], zoom_start=12, width='100%', height='100%')
+    my_map = folium.Map(location=[37.566345, 126.977893], zoom_start=12, width='100%', height='500px')
 
     # FastMarkerCluster 추가
     cluster = FastMarkerCluster(data=list(zip(df3['lat'], df3['lon'])))
@@ -78,8 +78,7 @@ def main():
         ).add_to(cluster)
 
     # Folium 지도를 HTML로 변환하여 Streamlit에 출력
-    map_html = my_map.get_root().render()
-    st.write(map_html, unsafe_allow_html=True)
+    folium_static(my_map)
 
 if __name__ == "__main__":
     main()
