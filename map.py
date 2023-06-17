@@ -43,7 +43,7 @@
 
 import streamlit as st
 import folium
-from folium.plugins import FastMarkerCluster
+from folium.plugins import MarkerCluster
 import pandas as pd
 
 @st.cache(suppress_st_warning=True)
@@ -51,9 +51,8 @@ def create_map(df):
     # 지도 생성
     map = folium.Map(location=[37.566345, 126.977893], zoom_start=12, width='100%', height='100%')
 
-    # FastMarkerCluster 추가
-    cluster = FastMarkerCluster(data=list(zip(df['lat'], df['lon'])))
-    map.add_child(cluster)
+    # MarkerCluster 추가
+    cluster = MarkerCluster().add_to(map)
 
     # 각 마커에 팝업 추가
     for idx, row in df.iterrows():
@@ -90,6 +89,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
