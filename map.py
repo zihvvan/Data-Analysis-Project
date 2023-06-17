@@ -42,6 +42,7 @@
 #     main()
 
 import streamlit as st
+from streamlit_folium import folium_static
 import folium
 from folium.plugins import FastMarkerCluster
 import pandas as pd
