@@ -45,7 +45,8 @@ import streamlit as st
 import pandas as pd
 import folium
 from folium.plugins import FastMarkerCluster
-from streamlit_folium.folium_static import _get_static_folium_map
+import base64
+import io
 
 def main():
     st.title('데이터 시각화 프로젝트')
@@ -59,7 +60,7 @@ def main():
     st.header("서울특별시 전기차 충전소.csv 📄")
     st.dataframe(df3)
     st.markdown("---")
-    st.header("서울특별시 전기차 충전소 지도 🗺")
+    st.header("서울특시 전기차 충전소 지도 🗺")
 
     # Create a map centered on Seoul
     m = folium.Map(location=[37.566345, 126.977893], zoom_start=11)
@@ -78,13 +79,17 @@ def main():
             tooltip=tooltip,
         ).add_to(marker_cluster)
 
-    # Render map using Folium
-    _get_static_folium_map(m, width="100%", height="100%")
+    # Render the map using INLINE HTML and display it using streamlit.write
+    mmap = io.BytesIO()
+    m.save(mmap, close_file=False)
+    mmap.seek(0)
+    st.write(base64.b64encode(mmap.getvalue()).decode(), unsafe_allow_html=True)
     
     st.markdown("---")
 
 if __name__ == "__main__":
     main()
+
 
 
 
