@@ -46,7 +46,7 @@ import folium
 from folium.plugins import FastMarkerCluster
 import pandas as pd
 import io
-from PIL import Image
+import base64
 
 def create_map(df):
     # 지도 생성
@@ -85,17 +85,17 @@ def main():
     # Folium 지도 생성
     my_map = create_map(df3)
 
-    # Folium 지도를 이미지로 변환
-    img_data = my_map._to_png(2, width='100%', height='100%')  # 이미지 크기를 조정하려면 scale 값을 변경하세요
+    # Folium 지도를 HTML로 변환
+    map_html = my_map.get_root().render()
 
-    # 이미지 스트림을 PIL Image 객체로 열기
-    image = Image.open(io.BytesIO(img_data))
-
-    # 이미지를 Streamlit에 표시
-    st.image(image, use_column_width=True, caption="서울특별시 전기차 충전소 지도")
+    # HTML을 바이너리 데이터로 변환하여 다운로드 링크 생성
+    b64 = base64.b64encode(map_html.encode()).decode()
+    html = f'<img src="data:image/png;base64,{b64}" width="100%" height="100%">'
+    st.markdown(html, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
+
 
 
 
