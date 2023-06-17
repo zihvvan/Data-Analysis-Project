@@ -75,6 +75,8 @@ streamlit_map = render_map(df3)
 st.title(" 지도 ")
 folium_static(streamlit_map)
 
+if __name__ == "__main__":
+    main()
 
 
 
