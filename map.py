@@ -79,7 +79,7 @@ def main():
 
     # Folium 지도를 HTML로 변환하여 Streamlit에 출력
     map_html = map.get_root().render()
-    st.components.v1.html(map_html, width='100%', height=500)
+    st.write(map_html, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
