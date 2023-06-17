@@ -86,13 +86,13 @@ def main():
     my_map = create_map(df3)
 
     # Folium 지도를 이미지로 변환
-    img_data = my_map._to_png(5)  # Set scale parameter to control image size (default scale is 2)
+    img_data = my_map._to_png(2)  # 이미지 크기를 조정하려면 scale 값을 변경하세요
 
     # 이미지 스트림을 PIL Image 객체로 열기
     image = Image.open(io.BytesIO(img_data))
 
     # 이미지를 Streamlit에 표시
-    st.image(image, use_column_width=True)
+    st.image(image, use_column_width=True, caption="서울특별시 전기차 충전소 지도")
 
 if __name__ == "__main__":
     main()
