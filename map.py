@@ -14,7 +14,7 @@ def main():
     st.dataframe(df3)
     st.markdown("---")
     st.header("서울특별시 전기차 충전소 지도 🗺")
-    image = Image.open('map.png')
+    image = Image.open('car_map.png')
 
 
 if __name__ == "__main__":
