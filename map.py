@@ -16,9 +16,9 @@ def main():
     st.markdown("---")
     st.header("서울특별시 전기차 충전소 지도 🗺")
     
-    # 이미지 파일 경로와 링크 주소를 설정합니다.
-    image_path = "car_map.png"
-    link_url = "https://colab.research.google.com/drive/1DW3oz7BdlPjTF86qCej086zlBkL9JjzU?usp=sharing"
+    # # 이미지 파일 경로와 링크 주소를 설정합니다.
+    # image_path = "car_map.png"
+    # link_url = "https://colab.research.google.com/drive/1DW3oz7BdlPjTF86qCej086zlBkL9JjzU?usp=sharing"
 
     # 이미지를 엽니다.
     image = Image.open(car_map.png)
