@@ -1,7 +1,6 @@
 import streamlit as st
 from PIL import Image
 import pandas as pd
-import webbrowser
 
 def main():
     st.title('데이터 시각화 프로젝트')
@@ -16,17 +15,13 @@ def main():
     st.markdown("---")
     st.header("서울특별시 전기차 충전소 지도 🗺")
     
-    # # 이미지 파일 경로와 링크 주소를 설정합니다.
-    # image_path = "car_map.png"
-    # link_url = "https://colab.research.google.com/drive/1DW3oz7BdlPjTF86qCej086zlBkL9JjzU?usp=sharing"
+    # 이미지 파일 경로와 링크 주소를 설정합니다.
+    image_path = "car_map.png"
+    link_url = "https://colab.research.google.com/drive/1DW3oz7BdlPjTF86qCej086zlBkL9JjzU?usp=sharing"
 
-    # 이미지를 엽니다.
-    image = Image.open(car_map.png)
-
-    # 이미지를 streamlit에 추가합니다.
-    if st.button("Click to Open Map"):
-        webbrowser.open_new_tab(https://colab.research.google.com/drive/1DW3oz7BdlPjTF86qCej086zlBkL9JjzU?usp=sharing)
-    st.image(image, use_column_width=True)
+    # 이미지를 클릭할 때 링크로 연결하는 markdown을 생성합니다.
+    link_markdown = f"[![car_map.png]({car_map.png})]({https://colab.research.google.com/drive/1DW3oz7BdlPjTF86qCej086zlBkL9JjzU?usp=sharing})"
+    st.markdown(link_markdown, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
