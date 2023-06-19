@@ -3,3 +3,4 @@ matplotlib
 folium
 joblib
 pandas
+webbrowser
