@@ -16,20 +16,7 @@ def main():
     st.markdown("---")
     st.header("서울특별시 전기차 충전소 지도 🗺")
     
-    # 이미지 파일 경로와 링크 주소를 설정합니다.
-    image_path = "map.png"
-    link_url = "https://colab.research.google.com/drive/1DW3oz7BdlPjTF86qCej086zlBkL9JjzU?usp=sharing"
 
-    # 이미지를 엽니다.
-    image = Image.open(map.png)
-
-    # 이미지를 streamlit에 추가합니다.
-    st.image(image, use_column_width=True)
-
-    # 이미지를 클릭하면 링크가 열리도록 합니다.
-    if st.button("Click me!"):
-        webbrowser.open_new_tab(https://colab.research.google.com/drive/1DW3oz7BdlPjTF86qCej086zlBkL9JjzU?usp=sharing)
-    st.markdown("---")
 
 if __name__ == "__main__":
     main()
