@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
 import pandas as pd
+import webbrowser
 
 def main():
     st.title('데이터 시각화 프로젝트')
