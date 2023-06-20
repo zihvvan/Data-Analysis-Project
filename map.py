@@ -21,15 +21,12 @@ def main():
     link_url = "https://colab.research.google.com/drive/1DW3oz7BdlPjTF86qCej086zlBkL9JjzU?usp=sharing"
 
     # 이미지를 streamlit에 추가합니다.
-    image = open("car_map.png", "rb")
+    image = open(image_path, "rb").read()
     st.image(image, use_column_width=True)
 
     # 이미지를 클릭할 때 링크로 연결합니다.
     if st.button("Click to Open Link"):
-        js = f"window.open('{link_url}')"
-        html = '<img src onerror="{}">'.format(js)
-        div = '<div>{}</div>'.format(html)
-        st.markdown(div, unsafe_allow_html=True)
+        st.markdown(f"[링크 바로가기]({link_url})")
 if __name__ == "__main__":
     main()
 
