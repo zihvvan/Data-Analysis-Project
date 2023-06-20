@@ -21,7 +21,7 @@ def main():
     link_url = "https://colab.research.google.com/drive/1DW3oz7BdlPjTF86qCej086zlBkL9JjzU?usp=sharing"
 
     # 이미지를 streamlit에 추가합니다.
-    image = open(car_map.png, "rb")
+    image = open("car_map.png", "rb")
     st.image(image, use_column_width=True)
 
     # 이미지를 클릭할 때 링크로 연결합니다.
