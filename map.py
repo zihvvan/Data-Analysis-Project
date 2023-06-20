@@ -33,9 +33,11 @@ def main():
     # if st.button("Click to Open Link"):
     #     st.markdown(f"[링크 바로가기]({link_url})")
 
-    # 전기차 충전소 지도 링크 연결
-   
-    st.button(f"[링크 바로가기]({link_url})")
+     # 전기차 충전소 지도 링크 연결
+    if st.button("Click to Open Link"):
+        st.markdown("![링크 바로가기](link_url)")
+
+
 
 
     # 이미지를 streamlit에 추가
