@@ -29,10 +29,7 @@ def main():
 #     return f'<a href="{link_url}" target="_blank"><img src="data:image/png;base64,{encoded_image}"></a>'
 
 
-if st.button("Click to Open Link", on_click=redirect_link, args=(link_url,)):
-    pass
-
-def redirect_link(link_url):
+if st.button("Click to Open Link"):
     js_code = f"window.open('{link_url}')"  # 새 창에서 링크 열기
     st.markdown(f'<p style="text-align:center"><a href="#" onclick="{js_code}">Link</a></p>', unsafe_allow_html=True)
 
