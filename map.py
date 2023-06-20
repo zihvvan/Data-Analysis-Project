@@ -14,7 +14,6 @@ def main():
     st.dataframe(df3)
     st.markdown("---")
     st.header("서울특별시 전기차 충전소 지도 🗺")
-    st.markdown("---")
     
     # 이미지와 연결할 링크 주소
     image_path = "car_map.png"
@@ -22,11 +21,23 @@ def main():
 
     # 이미지를 streamlit에 추가합니다.
     image = open(image_path, "rb").read()
-    st.image(image, use_column_width=True)
+    st.markdown(get_image_link(image, link_url), unsafe_allow_html=True)
 
-    # 이미지를 클릭할 때 링크로 연결합니다.
-    if st.button("Click to Open Link"):
-        st.markdown(f"[링크 바로가기]({link_url})")
+def get_image_link(image, link_url):
+    encoded_image = base64.b64encode(image).decode()
+    return f'<a href="{link_url}" target="_blank"><img src="data:image/png;base64,{encoded_image}"></a>'
+
+
+
+
+    # # 이미지를 streamlit에 추가합니다.
+    # image = open(image_path, "rb").read()
+    # st.image(image, use_column_width=True)
+
+    # # 이미지를 클릭할 때 링크로 연결합니다.
+    # if st.button("Click to Open Link"):
+    #     st.markdown(f"[링크 바로가기]({link_url})")
+        
 if __name__ == "__main__":
     main()
 
