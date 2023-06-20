@@ -22,7 +22,7 @@ def main():
 
     # 이미지를 streamlit에 추가
     image = open(image_path, "rb").read()
-    st.markdown(get_image_link(image, link_url, width=500), unsafe_allow_html=True)
+    st.markdown(get_image_link(image, link_url), unsafe_allow_html=True)
 
 def get_image_link(image, link_url):
     encoded_image = base64.b64encode(image).decode()
