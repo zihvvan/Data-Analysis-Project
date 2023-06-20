@@ -16,14 +16,20 @@ def main():
     st.header("서울특별시 전기차 충전소 지도 🗺")
     st.markdown("---")
     
-    # 이미지 파일 경로와 링크 주소를 설정합니다.
+    # 이미지와 연결할 링크 주소
     image_path = "car_map.png"
     link_url = "https://colab.research.google.com/drive/1DW3oz7BdlPjTF86qCej086zlBkL9JjzU?usp=sharing"
 
-    # 이미지를 클릭할 때 링크로 연결하는 markdown을 생성합니다.
-    if st.button("Click to Open Link"):
-        st.markdown(f"[링크 바로가기]({https://colab.research.google.com/drive/1DW3oz7BdlPjTF86qCej086zlBkL9JjzU?usp=sharing})")
+    # 이미지를 streamlit에 추가합니다.
+    image = open(car_map.png, "rb")
+    st.image(image, use_column_width=True)
 
+    # 이미지를 클릭할 때 링크로 연결합니다.
+    if st.button("Click to Open Link"):
+        js = f"window.open('{link_url}')"
+        html = '<img src onerror="{}">'.format(js)
+        div = '<div>{}</div>'.format(html)
+        st.markdown(div, unsafe_allow_html=True)
 if __name__ == "__main__":
     main()
 
