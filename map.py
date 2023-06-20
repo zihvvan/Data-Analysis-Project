@@ -17,7 +17,7 @@ def main():
     st.markdown("---")
     
     # 이미지 파일 경로와 링크 주소를 설정합니다.
-    image_path = "./car_map.png"
+    image_path = "car_map.png"
     link_url = "https://colab.research.google.com/drive/1DW3oz7BdlPjTF86qCej086zlBkL9JjzU?usp=sharing"
 
     # 이미지를 클릭할 때 링크로 연결하는 markdown을 생성합니다.
