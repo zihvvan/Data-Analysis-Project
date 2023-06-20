@@ -20,25 +20,9 @@ def main():
     image_path = "car_map.png"
     link_url = "https://colab.research.google.com/drive/1DW3oz7BdlPjTF86qCej086zlBkL9JjzU?usp=sharing"
 
-    # # 이미지를 streamlit에 추가
-    # image = open(image_path, "rb").read()
-    # st.markdown(get_image_link(image, link_url), unsafe_allow_html=True)
-
-# def get_image_link(image, link_url):
-#     encoded_image = base64.b64encode(image).decode()
-#     return f'<a href="{link_url}" target="_blank"><img src="data:image/png;base64,{encoded_image}"></a>'
-
-
-    #  # 전기차 충전소 지도 링크 연결
-    # if st.button("Click to Open Link"):
-    #     st.markdown(f"[링크 바로가기]({link_url})")
-
-     # 전기차 충전소 지도 링크 연결
+    # 전기차 충전소 지도 링크 연결
     if st.button("Click to Open Link"):
-        st.markdown("![링크 바로가기](link_url)")
-
-
-
+        st.markdown(f"[https://colab.research.google.com/drive/1DW3oz7BdlPjTF86qCej086zlBkL9JjzU?usp=sharing]({link_url})")
 
     # 이미지를 streamlit에 추가
     image = open(image_path, "rb").read()
