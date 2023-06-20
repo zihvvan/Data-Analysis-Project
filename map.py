@@ -25,9 +25,10 @@ def main():
     st.markdown(get_image_link(image, link_url), unsafe_allow_html=True)
 
 def get_image_link(image, link_url):
-    image_tag = f'<a href="{link_url}" target="_blank"><img src="data:image/png;base64,{base64.b64encode(image.read()).decode()}" style="max-width: 100%; height: auto;"></a>'
+    image_data = image.tobytes()
+    encoded_image = base64.b64encode(image_data).decode()
+    image_tag = f'<a href="{link_url}" target="_blank"><img src="data:image/png;base64,{encoded_image}" style="max-width: 100%; height: auto;"></a>'
     return image_tag
-
 
 
 # def get_image_link(image, link_url):
