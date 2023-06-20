@@ -29,9 +29,9 @@ def main():
 #     return f'<a href="{link_url}" target="_blank"><img src="data:image/png;base64,{encoded_image}"></a>'
 
 
-if st.button("Click to Open Link"):
-    js_code = f"window.open('{link_url}')"  # 새 창에서 링크 열기
-    st.markdown(f'<p style="text-align:center"><a href="#" onclick="{js_code}">Link</a></p>', unsafe_allow_html=True)
+      if st.button("Click to Open Link"):
+         js_code = f"window.open('{link_url}')"  # 새 창에서 링크 열기
+          st.markdown(f'<p style="text-align:center"><a href="#" onclick="{js_code}">Link</a></p>', unsafe_allow_html=True)
 
     # # 전기차 충전소 지도 링크 연결
     # if st.button("Click to Open Link"):
